@@ -19,7 +19,6 @@ CORE_OS = " \
     darksky-network-config \
     udev-rules \
     udev-automount \
-    sshd \
 "
 
 KERNEL_EXTRA_INSTALL = " \
