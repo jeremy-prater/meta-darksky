@@ -78,11 +78,11 @@ if [ $1 == "postinst" ]; then
         rm -rf /boot/*
         tar -xvzf $BOOTFILES
         echo $NEW_BOOT > /boot/version
-
-        echo Setting boot partition to ${UPDATE_PART}
-        sed -i "s/mmcblk0p2/mmcblk0p${UPDATE_PART}/g" "/boot/cmdline.txt"
     fi
 
+    echo Setting boot partition to ${UPDATE_PART}
+    sed -i "s/mmcblk0p${CURRENT_PART}/mmcblk0p${UPDATE_PART}/g" "/boot/cmdline.txt"
+
     sync
-    #reboot
+    reboot
 fi
